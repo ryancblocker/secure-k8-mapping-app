@@ -1,0 +1,19 @@
+
+clusterAddress: 192.168.49.2
+
+postgres: 
+  replicaCount: 1
+  image: postgres
+
+keycloak: 
+  replicaCount: 1
+  image: quay.io/keycloak/keycloak:22.0.1
+
+spring: 
+  replicaCount: 1
+  #image: ryancblocker/saffire_springboot_repo_01:latest
+  image: cassidyroberts/elastic:0.0.14-SNAPSHOT
+
+elasticsearch:
+  replicaCount: 1
+  image: docker.elastic.co/elasticsearch/elasticsearch:7.15.0

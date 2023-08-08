@@ -1,0 +1,51 @@
+<html>
+    <head>
+        <title>Hello Keycloak</title>
+        <script src="./node_modules/keycloak-js/dist/keycloak.js"></script>
+        <script>
+            var keycloak;
+
+            function initKeycloak() {
+                keycloak = new Keycloak("./keycloak.json");
+
+                keycloak.init({ onLoad: 'login-required' }).then(function(authenticated) {
+                    if (authenticated) {
+                        alert('Hello, World!');
+                        displayLogoutButton();
+                    } else {
+                        alert('Not authenticated');
+                    }
+                }).catch(function() {
+                    alert('Hello, World');
+                });
+            }
+
+            function displayLogoutButton() {
+                var logoutButton = document.createElement('button');
+                logoutButton.textContent = 'Logout';
+                logoutButton.addEventListener('click', logout);
+                var logoutContainer = document.getElementById('logoutContainer');
+                logoutContainer.innerHTML = ''; // Clear any existing content
+                logoutContainer.appendChild(logoutButton);
+            }
+
+            function logout() {
+                keycloak.logout({ redirectUri: 'http://localhost:8080/redirect' });
+            }
+        </script>
+    </head>
+    <body onload="initKeycloak()">
+        <center>
+            <h1 style="font-family: Arial, Helvetica, sans-serif;">Saffire Internship: Welcome!</h1>
+        </center>
+        <center>
+            <div id="logoutContainer">
+                <button onclick="logout()">Logout</button>
+        </center>
+        <br>
+        <center>
+            <img src="https://i.ibb.co/xf0ShXn/interns-pic.jpg" alt="interns-pic">
+        </center>
+        </div>
+    </body>
+</html>

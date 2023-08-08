@@ -1,0 +1,236 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+.title-container {
+  display: flex;
+  align-items: center;
+  background-color: #FFFFFF;
+  height: 107px;
+  padding-top: 10px;
+}
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+li {
+  float: left;
+  margin-right: 100px;
+}
+li a {
+  display: block;
+  color: rgb(0, 0, 0);
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+li a.nav_hover {
+  font-size: 24px;
+  color: rgb(66, 65, 65) /* You can adjust the font size as per your preference */
+}
+.nav_hover:hover {
+  background-color: #FFFFFF;
+  color: red;
+}
+.nav_hover {
+  color: black;
+  font-size: 20px;
+  position: relative;
+  transition: all 0.4s;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+.nav_hover::after {
+  content: '';
+  height: 2px;
+  width: 100%;
+  background: red;
+  display: block;
+  left: 0;
+  bottom: 8px;
+  opacity: 0;
+}
+.nav_hover:hover::after {
+  opacity: 1;
+}
+#headerContainer {
+  background-color: black;
+  color: #FFFFFF;
+  padding: 10px;
+  margin-top: 30px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%);
+  width: 600px;
+  z-index: 1;
+}
+#headerContainer::before {
+      content: '';
+      width: 75px;
+      height: 90%;
+      border-left-width: 7px;
+      border-left-style: solid;
+      border-left-color: rgb(237, 27, 46);
+      border-top-width: 7px;
+      border-top-style: solid;
+      border-top-color: rgb(237, 27, 46);
+      border-bottom-width: 7px;
+      border-bottom-style: solid;
+      border-bottom-color: rgb(237, 27, 46);
+      position: absolute;
+      top: 0px;
+      left: 0px;
+      opacity: 1;
+  }
+  #headerContainer::after {
+      content: '';
+      width: 75px;
+      height: 90%;
+      border-left-width: 7px;
+      border-left-style: solid;
+      border-left-color: rgb(237, 27, 46);
+      border-top-width: 7px;
+      border-top-style: solid;
+      border-top-color: rgb(237, 27, 46);
+      border-bottom-width: 7px;
+      border-bottom-style: solid;
+      border-bottom-color: rgb(237, 27, 46);
+      position: absolute;
+      top: 0px;
+      right: 0px;
+      opacity: 1;
+      transform: rotateY(180deg);
+}
+#heroHeader {
+  text-align: center;
+}
+video {
+  position: absolute;
+  top: 100px;
+  left: 0;
+  width: 100%;
+  height: calc(100% - 60px);
+  object-fit: cover;
+  z-index: -1;
+}
+#logoutButton {
+      position: absolute;
+      top: 33px;
+      right: 33px;
+}
+#logoutButton button {
+  padding: 5px 12px; /* You can adjust the padding to increase button size */
+  font-size: 18px;
+  background-color: black;
+  color: #FFFFFF;
+  border-radius: 5px;
+  /* You can adjust the font-size to increase button size */
+}
+#logoutButton button:hover {
+  background-color: red;
+}
+@import url('https://fonts.googleapis.com/css2?family=Bungee+Spice&family=Patua+One&display=swap');
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body{
+            background: white;
+            font-family: 'Patua One', cursive;
+        }
+        .wrapper{
+            margin-top: 10%;
+        }
+        .wrapper h1{
+            font-family: 'Bungee Spice', 'Times New Roman', Times, serif;
+            font-size: 52px;
+            margin-bottom: 60px;
+            text-align: center;
+        }
+        .team{
+            display: flex;
+            text-align: center;
+            width: auto;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .team .team_member{
+            background: black;
+            margin: 50px;
+            margin-bottom: 50px;
+            width: 300px;
+            padding: 20px;
+            line-height: 20px;
+            color: #8E8B8B;
+            position: relative;
+        }
+        .team .team_member h3{
+            color: white;
+            font-size: 26px;
+            margin-top: 50px;
+        }
+        .team .team_member p.role{
+            color: #ccc;
+            font-size: 12px;
+            text-transform: uppercase;
+            margin: 12px 0;
+        }
+        .team .team_member .team_img{
+            width: 85px;
+            height: 85px;
+            border-radius: 50%;
+            position: absolute;
+            top: -50px;
+            left: 45%;
+            transform: translateX(-50%);
+            background: #fff;
+        }
+        .team .team_member .team_img img{
+            width: 115px;
+            height: 115px;
+            padding: -5px;
+            object-fit: cover;
+            left: 45%;
+        }
+        .logoutSection {
+                margin: 0;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 75vh;
+            }
+            .white-box {
+                width: 600px; /* Set the width of the white box */
+                height: 400px; /* Set the height of the white box */
+                background-color: #FFFFFF; /* Set the white background color */
+                border: 1px solid #FFFFFF; /* Optional: Add a border */
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Optional: Add a box shadow */
+            }
+            .logoutSection {
+                font-size: 24px;
+                font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+            }
+            .stayTuned {
+                font-size: 18px;
+            }
+            .logoutBody {
+              background-image: url("logoutBackground.jpg");
+              background-size: cover; /* Adjusts the image to cover the entire background */
+              background-repeat: no-repeat; /* Prevents the image from repeating */
+              background-position: center center;
+              margin: 0;
+              padding: 0;
+              min-height: 100vh;
+            }
+
+            .returnButton {
+              padding: 3px 8px; 
+              font-size: 18px;
+              background-color: black;
+              color: #FFFFFF;
+              border-radius: 5px;
+              margin-top: 30px;
+            }

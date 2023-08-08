@@ -1,0 +1,63 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: es-config
+data:
+  elasticsearch.yml: |
+    xpack.security.enabled: false
+    discovery.type: "single-node"
+    cluster.name: "docker-cluster"
+    network.host: 0.0.0.0
+    http.cors.enabled: true
+    http.cors.allow-origin: "*"
+    http.cors.allow-methods: OPTIONS, HEAD, GET, POST, PUT, DELETE
+    http.cors.allow-headers: "X-Requested-With,X-Auth-Token,Content-Type, Content-Length, Authorization"
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: es01
+spec:
+  replicas: {{ .Values.elasticsearch.replicaCount }}
+  selector:
+    matchLabels:
+      app: es01
+  template:
+    metadata:
+      labels:
+        app: es01
+    spec:
+      containers:
+      - name: es01
+        image: {{ .Values.elasticsearch.image }}
+        ports:
+        - containerPort: 9200
+        volumeMounts:
+        - name: es-config-volume
+          mountPath: /usr/share/elasticsearch/config/elasticsearch.yml
+          subPath: elasticsearch.yml
+        resources:
+          limits:
+            cpu: "1"
+            memory: "2048Mi"
+          requests:
+            cpu: "1"
+            memory: "2048Mi"
+      volumes:
+      - name: es-config-volume
+        configMap:
+          name: es-config
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: es01-service
+spec:
+  selector:
+    app: es01
+  ports:
+    - protocol: TCP
+      port: 9200
+      targetPort: 9200
+      nodePort: 30002
+  type: NodePort

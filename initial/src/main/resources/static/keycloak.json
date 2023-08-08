@@ -1,0 +1,8 @@
+{
+  "realm": "saffire_realm",
+  "auth-server-url": "https://keycloak.192.168.49.2.nip.io/",
+  "ssl-required": "external",
+  "resource": "saffire_client",
+  "public-client": true,
+  "confidential-port": 0
+}

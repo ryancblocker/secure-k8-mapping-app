@@ -1,0 +1,9 @@
+# Ignore target directories
+inital/target/
+
+# Ignore wrapper folders
+.mvnw/wrapper/
+gradle/wrapper/
+
+# Ignore jar files
+*.jar

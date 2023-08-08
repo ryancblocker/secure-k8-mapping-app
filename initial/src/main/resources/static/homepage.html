@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>SAFFIRE</title>
+    <link rel="icon" type="image/ico" href="CACIlogo.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="./node_modules/keycloak-js/dist/keycloak.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<script>
+var keycloak;
+
+function initKeycloak() {
+    keycloak = new Keycloak("./keycloak.json");
+
+    keycloak
+    .init({ onLoad: "login-required" })
+    .then(function (authenticated) {
+        if (authenticated) {
+        alert("Hello, World!");
+        displayLogoutButton();
+        } else {
+        alert("Not authenticated");
+        }
+    })
+    .catch(function () {
+        // alert("Hello, World");
+    });
+}
+
+function displayLogoutButton() {
+    var logoutButton = document.createElement("button");
+    logoutButton.textContent = "Logout";
+    logoutButton.addEventListener("click", logout);
+    var logoutContainer = document.getElementById("logoutContainer");
+    logoutContainer.innerHTML = "";
+    logoutContainer.appendChild(logoutButton);
+}
+
+function logout() {
+    keycloak.logout({ redirectUri: 'http://192.168.49.2:30001/logout.html' });
+}
+
+
+</script>
+<body onload="initKeycloak()">
+    <div class="title-container">
+        <p style="padding-right: 90px">
+            <a href="https://www.caci.com/">
+                <img src="CACIlogo.png" alt="CACI logo" height="100px">
+            </a>
+        </p>
+        <ul>
+            <li><a href="homepage.html" class="nav_hover">Home</a></li>
+            &nbsp;
+            <li><a class="nav_hover" href="kibana.html">Mapping</a></li>
+            <li><a class="nav_hover" href="about.html">About</a></li>
+        </ul>
+        <div id="logoutButton">
+            <button type="button" onclick="logout()">
+                <i style="font-size: 24px" class="fa">&#xf08b;</i> Logout
+            </button>
+        </div>
+    </div>
+    <div id="headerContainer">
+        <h1 id="heroHeader" tabindex="1">
+            EXPERTISE AND TECHNOLOGY
+            <br>
+            <span style="font-family: EncodeSans-Light, sans-serif">FOR NATIONAL SECURITY</span>
+        </h1>
+    </div>
+    <video autoplay loop muted>
+        <source src="globe.mp4" type="video/mp4">
+    </video>
+</body>
+</html>

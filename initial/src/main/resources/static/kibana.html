@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>SAFFIRE</title>
+    <link rel="icon" type="image/ico" href="CACIlogo.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <meta http-equiv="Content-Security-Policy" content="script-src 'unsafe-inline';">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="title-container">
+        <p style="padding-right: 90px">
+            <a href="https://www.caci.com/">
+                <img src="CACIlogo.png" alt="CACI logo" height="100px">
+            </a>
+        </p>
+        <ul>
+            <li><a href="homepage.html" class="nav_hover">Home</a></li>
+            &nbsp;
+            <li><a class="nav_hover" href="kibana.html">Mapping</a></li>
+            <li><a class="nav_hover" href="about.html">About</a></li>
+        </ul>
+    </div>
+    <div id="logoutButton">
+        
+        <button type="button" onclick="logout()">
+            <i style="font-size: 24px" class="fa">&#xf08b;</i> Logout
+        </button>
+    </div>
+    <iframe src="https://localhost:5601/app/r/s/41EOk" height="850" width="1820"></iframe>
+</body>
+
+<script>
+    function logout() {
+        window.location.href = "logout.html";
+    }
+</script>
+</html>
